@@ -1,8 +1,11 @@
-const mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds331558.mlab.com:31558/employeedb', {userNewUrlParse: true}, (err) => {
+const dbpath = "mongodb://<dbuser>:<dbpassword>@ds331558.mlab.com:31558/employeedb";
+
+mongoose.connect(dbpath, {useMongoClient: true}, (err) => {
     if(!err) { console.log('MongoDB Conection Succeeded.') }
     else { console.log('Error in DB conncetion :' + err) }
 });
+mongoose.set('useCreateindex', true);
 
 require('./employee.model');
