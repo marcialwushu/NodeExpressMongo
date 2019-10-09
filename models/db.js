@@ -4,3 +4,5 @@ mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds331558.mlab.com:31558/employ
     if(!err) { console.log('MongoDB Conection Succeeded.') }
     else { console.log('Error in DB conncetion :' + err) }
 });
+
+require('./employee.model');
