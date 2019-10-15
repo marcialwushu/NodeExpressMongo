@@ -5,9 +5,19 @@ const path = require('path');
 const employeeController = require('./controllers/employeeController');
 
 var app = express();
+var exphbs = require('express-handlebars');
+
+/**
+ * var hbs = exphbs.create({
+    defaultLayout: 'mainLayout',
+    extname: '.html',
+    helpers: handlebarsHelpers,
+});
+ */
+
 
 app.set('views', path.join(__dirname, '/views/'));
-app.engine('hbs', exphbs({ extname: 'hbs', defaultLayout: 'mainLayout', layoutsDir: __dirname + '/views/layouts' }));
+app.engine('hbs', exphbs({ extname: '.hbs', defaultLayout: 'mainLayout', layoutsDir: __dirname + '/views/layouts/' }));
 app.set('view engine', 'hbs');
 
 app.listen(3000, () => {
